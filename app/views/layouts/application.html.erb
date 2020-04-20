@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SessionWork</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div>
+      <% if logged_in? %>
+        <%= link_to "プロフィール", user_path(current_user.id) %>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "サインアップ", new_user_path %>
+        <%= link_to "ログイン", new_session_path %>
+      <% end %>
+    </div>
+    <div>
+      <% if flash.notice.present? %>
+        <%= flash.notice %>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>
