@@ -2,3 +2,9 @@
 
 <p><%= @user.name %></p>
 <p><%= @user.email %></p>
+
+<h3>お気に入り一覧</h3>
+<% @favorites.each do |favorite| %>
+  <p>タイトル：<%= favorite.title %></p>
+  <p>投稿者：<%= favorite.user.name %></p>
+<% end %>
