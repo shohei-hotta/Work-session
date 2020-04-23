@@ -10,9 +10,11 @@
 <p>お気に入りされた数：<%= count %></p>
 
 
-<h3>お気に入り一覧</>
+<h3>お気に入り一覧</h3>
 <% @favorites.each do |favorite| %>
   <p>タイトル：<%= favorite.title %></p>
   <p>投稿者：<%= favorite.user.name %></p>
 <% end %>
+
+<%= link_to "ブログ一覧", blogs_path %>
 
