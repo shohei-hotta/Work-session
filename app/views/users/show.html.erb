@@ -3,8 +3,16 @@
 <p><%= @user.name %></p>
 <p><%= @user.email %></p>
 
-<h3>お気に入り一覧</h3>
+<% count = 0 %>
+<% @current_user_blogs.each do |blog| %>
+  <% count += blog.favorites.count if blog.favorites.present? %>
+<% end %>
+<p>お気に入りされた数：<%= count %></p>
+
+
+<h3>お気に入り一覧</>
 <% @favorites.each do |favorite| %>
   <p>タイトル：<%= favorite.title %></p>
   <p>投稿者：<%= favorite.user.name %></p>
 <% end %>
+
